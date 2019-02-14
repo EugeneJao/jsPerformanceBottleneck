@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>获取dom元素开销</title>
+    <meta charset="utf-8" lang="zh">
+  </head>
+  <body>
+    <h1>获取dom元素开销</h1>
+    <h2>运行结果:</h2>
+    <p class="exe-result"></p>
+    <script src="../../utils/demo_utils.js"></script>
+    <script>
+      function cost(selector) {
+        var ENLARGET_RATE = 100000;
+        var befSearchTime = performance.now();
+        // 末尾加一个后缀保证每次选择器都选择不到元素，防止浏览器缓存查询结果
+        document.querySelector(selector + '-a' );
+        var aftSearchTime = performance.now();
+        demo(['选择器选择，时间开销：' + (aftSearchTime - befSearchTime)]);
+
+        var befLogCalTime = performance.now();
+        Math.log(1000000);
+        var aftLogCalTime = performance.now();
+        demo(['对数运算，时间开销：' + (aftLogCalTime - befLogCalTime)]);
+      }
+      cost('h');
+    </script>
+  </body>
+</html>

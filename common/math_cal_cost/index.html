@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <titile>js数学运算开销排序</titile>
+    <meta charset="utf-8" lang="zh">
+  </head>
+  <body>
+    <h1>js数学运算开销排序</h1>
+    <h2>结果：</h2>
+    <script src="../../utils/demo_utils.js"></script>
+    <script>
+      function cost() {
+        var befLogTime = performance.now();
+        Math.log(100000000000000);
+        var aftLogTime = performance.now(); 
+        demo(['对数运算,时间开销:' + (aftLogTime - befLogTime)]);
+
+        var befSinTime = performance.now();
+        Math.sin(100000000000000);
+        var aftSinTime=performance.now(); demo(['sin运算,时间开销:' + (aftSinTime - befSinTime)]);
+
+        var befSqrtTime = performance.now();
+        Math.sqrt(100000000000000);
+        var aftSqrtTime=performance.now(); demo(['开平方根运算,时间开销:' + (aftSqrtTime - befSqrtTime)]);
+      
+        var befPowTime = performance.now();
+        Math.pow(2, 100000000000000);
+        var aftPowTime=performance.now(); demo(['指数运算,时间开销:' + (aftPowTime - befPowTime)]);
+
+        var befRoundTime = performance.now();
+        Math.round(100000000000000);
+        var aftRoundTime = performance.now();
+        demo(['round运算,时间开销:' + (aftRoundTime - befRoundTime)]);
+
+        var befTanTime = performance.now();
+        Math.tan(100000000000000);
+        var aftTanTime = performance.now();
+        demo(['tan运算,时间开销:' + (aftTanTime - befTanTime)]);
+      }
+      cost();
+    </script>
+  </body>
+</html>
